@@ -11,6 +11,7 @@ camera = cv2.VideoCapture(0)
 def gen_frames():  
     while True:
         success, frame = camera.read() 
+       
         if not success:
             break
         else:
@@ -30,8 +31,7 @@ def video_feed():
 
 @app.route('/')
 def starter():
-    """Video streaming home page."""
-    return render_template('starter.html')
+    return render_template('starter.html',title='started',ip = ip_address,port=8080)
 
 
 if __name__ == '__main__':
